@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, MutableRefObject } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import setaBaixo from '../assets/seta-baixo.svg'; // Importando o SVG
 
 const Header = () => {
   const [isPortfolioOpen, setIsPortfolioOpen] = useState(false);
-  const portfolioRef = useRef(null); // Referência para o submenu
+  const portfolioRef: MutableRefObject<HTMLDivElement | null> = useRef(null);
   const location = useLocation(); // Para verificar a rota atual
 
   // Função para alternar a abertura/fechamento do submenu
@@ -13,8 +13,8 @@ const Header = () => {
   };
 
   // Função para fechar o submenu ao clicar fora dele
-  const handleClickOutside = (event) => {
-    if (portfolioRef.current && !portfolioRef.current.contains(event.target)) {
+  const handleClickOutside = (event: MouseEvent) => {
+    if (portfolioRef.current instanceof HTMLDivElement && !portfolioRef.current.contains(event.target as Node)) {
       setIsPortfolioOpen(false);
     }
   };

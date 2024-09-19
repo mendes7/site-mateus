@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const Card = ({ imageData }) => {
+const Card = ({ imageData }: { imageData: any }) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const openModal = (index) => {
+  const openModal = (index: number) => {
     setCurrentImage(index);
     setIsModalOpen(true);
   };
@@ -25,7 +25,7 @@ const Card = ({ imageData }) => {
   return (
     <StyledWrapper>
       <div className="main">
-        {imageData.slice(0, 4).map((data, index) => (
+        {imageData.slice(0, 4).map((data: typeof imageData[number], index: number) => (
           <div
             key={index}
             className="card"
