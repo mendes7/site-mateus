@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import ColagemHome from '../assets/imagem-mateus1.jpg'
 import DesignGraficoHome from '../assets/imagem-mateus1.jpg'
 import FotografiaHome from '../assets/fotografia-2.jpg'
@@ -9,7 +10,12 @@ const Home = () => {
 
       <div className='grid grid-cols-3 gap-6'>
         {/* Card Colagens */}
-        <a href="portfolio/colagem">
+        <NavLink 
+          to="/portfolio/colagem" 
+          className={({ isActive }) => 
+            isActive ? 'block relative group cursor-pointer overflow-hidden duration-500 w-[20rem] h-[30rem] bg-zinc-800 text-neutral-50' : 'block relative group cursor-pointer overflow-hidden duration-500 w-[20rem] h-[30rem] bg-zinc-800 text-neutral-50'
+          }
+        >
           <div className="relative group cursor-pointer overflow-hidden duration-500 w-[20rem] h-[30rem] bg-zinc-800 text-neutral-50">
             <img src={ColagemHome} alt="" className="w-full h-full object-cover" />
             <div className="absolute w-full left-0 p-5 -bottom-16 duration-500 group-hover:-translate-y-12">
@@ -21,10 +27,15 @@ const Home = () => {
               <h2 className="group-hover:opacity-100 w-full duration-500 opacity-0 font-semibold">Clique para ver mais</h2>
             </div>
           </div>
-        </a>
+        </NavLink>
 
         {/* Card Designs Gráficos */}
-        <a href="portfolio/design-grafico">
+        <NavLink 
+          to="/portfolio/design-grafico" 
+          className={({ isActive }) => 
+            isActive ? 'block relative group cursor-pointer overflow-hidden duration-500 w-[20rem] h-[30rem] bg-zinc-800 text-neutral-50' : 'block relative group cursor-pointer overflow-hidden duration-500 w-[20rem] h-[30rem] bg-zinc-800 text-neutral-50'
+          }
+        >
           <div className="relative group cursor-pointer overflow-hidden duration-500 w-[20rem] h-[30rem] bg-zinc-800 text-neutral-50">
             <img src={DesignGraficoHome} alt="" className="w-full h-full object-cover" />
             <div className="absolute w-full left-0 p-5 -bottom-16 duration-500 group-hover:-translate-y-12">
@@ -36,10 +47,15 @@ const Home = () => {
               <h2 className="group-hover:opacity-100 w-full duration-500 opacity-0 font-semibold">Clique para ver mais</h2>
             </div>
           </div>
-        </a>
+        </NavLink>
 
         {/* Card Fotografias */}
-        <a href="portfolio/fotografia">
+        <NavLink 
+          to="/portfolio/fotografia" 
+          className={({ isActive }) => 
+            isActive ? 'block relative group cursor-pointer overflow-hidden duration-500 w-[20rem] h-[30rem] bg-zinc-800 text-neutral-50' : 'block relative group cursor-pointer overflow-hidden duration-500 w-[20rem] h-[30rem] bg-zinc-800 text-neutral-50'
+          }
+        >
           <div className="relative group cursor-pointer overflow-hidden duration-500 w-[20rem] h-[30rem] bg-zinc-800 text-neutral-50">
             <img src={FotografiaHome} alt="" className="w-full h-full object-cover" />
             <div className="absolute w-full left-0 p-5 -bottom-16 duration-500 group-hover:-translate-y-12">
@@ -51,7 +67,7 @@ const Home = () => {
               <h2 className="group-hover:opacity-100 w-full duration-500 opacity-0 font-semibold">Clique para ver mais</h2>
             </div>
           </div>
-        </a>
+        </NavLink>
       </div>
 
     </div>
