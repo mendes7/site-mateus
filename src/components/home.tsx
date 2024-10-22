@@ -2,11 +2,15 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import ColagemHome from '../assets/imagem-mateus1.jpg'
 import DesignGraficoHome from '../assets/imagem-mateus1.jpg'
-import FotografiaHome from '../assets/fotografia-2.jpg'
+import FotografiaHome from '../assets/fotografia-home.jpg'
+
+import Rotate from './rotate';
 
 const Home = () => {
   return (
-    <div className='mx-auto max-w-6xl my-8 space-y-12'>
+    <div className='relative mx-auto max-w-6xl my-8 space-y-12'>
+      
+      <Rotate />
 
       <div className='grid grid-cols-3 gap-6'>
         {/* Card Colagens */}

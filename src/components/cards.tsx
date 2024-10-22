@@ -137,8 +137,8 @@ const Modal = styled.div`
 
 const StyledWrapper = styled.div`
   .card {
-    width: 300px;
-    height: 370px;
+    width: 330px;
+    height: 400px;
     background: rgba(211, 211, 211, 0.199);
     position: absolute;
     transition: 0.3s ease-in-out;
