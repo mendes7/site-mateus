@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './cards'
+import Rotate from './rotate';
 
 import sev1 from '../assets/70s/70s_1.jpg';
 import sev2 from '../assets/70s/70s_2.jpg';
@@ -39,6 +40,8 @@ const Colagem = () => {
 
     return (
         <div className='grid grid-cols-2 gap-[550px] my-28'>
+            <Rotate />
+
             <Card imageData={sev} />
             <Card imageData={azul} />
             <Card imageData={marrom} />

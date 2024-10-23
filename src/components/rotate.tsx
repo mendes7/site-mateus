@@ -1,14 +1,15 @@
 import React from 'react';
-import raiam from '../assets/raiamkkk.png';
+import peixe from '../assets/logo-peixe.png'; // Sua imagem
 
 const Rotate = () => {
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-[-10]">
-      <div className="w-64 h-64 relative">
+    <div className="fixed inset-0 flex items-center justify-center -z-10">
+      <div className="relative w-64 h-64 animate-orbit">
+        {/* Adiciona a rotação no eixo próprio */}
         <img
-          src={raiam}
-          alt="Imagem Percorrendo"
-          className="w-full h-full absolute animate-orbit"
+          src={peixe}
+          alt="Logo-Peixe Mateus Mendes girando e orbitando a tela"
+          className="w-full h-full animate-spin-slow"
         />
       </div>
     </div>
