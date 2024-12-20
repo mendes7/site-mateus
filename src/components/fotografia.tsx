@@ -11,12 +11,12 @@ import mar5 from '../assets/mar-foto/mar5.jpg';
 const Fotografia = () => {
 
     const sub = [
-        { src: mar4, caption: 'Mar Negro | Colagens Manuais e Poema, 2018' },
-        { src: mar3, caption: 'Mar Negro | Colagens Manuais e Poema, 2018' },
-        { src: mar2, caption: 'Mar Negro | Colagens Manuais e Poema, 2018' },
-        { src: mar1, caption: 'Mar Negro | Colagens Manuais e Poema, 2018' },
+        { src: mar4, caption: 'Marés de Liberdade | 2015' },
+        { src: mar3, caption: 'Marés de Liberdade | 2015' },
+        { src: mar2, caption: 'Marés de Liberdade | 2015' },
+        { src: mar1, caption: 'Marés de Liberdade | 2015' },
         
-        { src: mar5, caption: 'Mar Negro | Colagens Manuais e Poema, 2018' },
+        { src: mar5, caption: 'Marés de Liberdade | 2015' },
     ];
 
     return (
