@@ -11,8 +11,8 @@ const Sobre = () => {
 
           Além da arte visual, tenho uma forte ligação com a música. Já toquei instrumentos, fiz parte de uma banda e, até hoje, a música é uma grande fonte de inspiração no meu dia a dia.
 
-          Apesar da minha paixão pela arte, nunca consegui viver exclusivamente dela, então sempre a mantive como um hobby que faço por amor. Passei por diversas áreas profissionais e também por várias faculdades que não me preencheram. Minha primeira graduação foi um Bacharelado Interdisciplinar em Artes na UFBA, mas precisei trancar para conciliar com o trabalho.
-          <br />
+          Apesar da minha paixão pela arte, nunca consegui viver exclusivamente dela, então sempre a mantive como um hobby que faço por amor. Passei por diversas áreas profissionais e também por várias faculdades que não me preencheram. <br /> <br /> Minha primeira graduação foi um Bacharelado Interdisciplinar em Artes na UFBA, mas precisei trancar para conciliar com o trabalho.
+          
           Atualmente, estudo design gráfico, uma escolha que me permite unir minha paixão pela arte com possibilidades no mercado de trabalho. Por meio da colagem e da fotografia, continuo explorando minha criatividade e ampliando meu olhar artístico.
 
           As temáticas que exploro em minhas composições vão desde as representções atlânticas-afrodiaspóricas até ao abstracionismo poético. 
