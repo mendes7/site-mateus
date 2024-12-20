@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-const Card = ({ imageData }: { imageData: any }) => {
+const Card = ({ imageData }: { imageData: any[] }) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Dividir as imagens em duas partes: as primeiras 4 para visualização e o resto como extras
+  const visibleImages = imageData.slice(0, 4); // Primeiras 4 imagens
+  const extraImages = imageData.slice(4); // Imagens extras
 
   const openModal = (index: number) => {
     setCurrentImage(index);
@@ -13,19 +17,41 @@ const Card = ({ imageData }: { imageData: any }) => {
   const closeModal = () => setIsModalOpen(false);
 
   const nextImage = () => {
-    setCurrentImage((prevIndex) => (prevIndex + 1) % imageData.length);
+    setCurrentImage((prevIndex) =>
+      prevIndex === 0 ? (visibleImages.length + extraImages.length) - 1 : prevIndex - 1
+    );
   };
 
   const prevImage = () => {
-    setCurrentImage((prevIndex) =>
-      prevIndex === 0 ? imageData.length - 1 : prevIndex - 1
-    );
+    setCurrentImage((prevIndex) => (prevIndex + 1) % (visibleImages.length + extraImages.length));
   };
+
+  // Manipulador de teclas
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === "ArrowRight") nextImage();
+    if (event.key === "ArrowLeft") prevImage();
+    if (event.key === "Escape") closeModal();
+  };
+
+  // Ativa e remove o listener de teclas
+  useEffect(() => {
+    if (isModalOpen) {
+      window.addEventListener("keydown", handleKeyDown);
+    } else {
+      window.removeEventListener("keydown", handleKeyDown);
+    }
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isModalOpen]);
+
+  // Unir as imagens visíveis e extras para a navegação no modal
+  const allImages = [...visibleImages, ...extraImages];
+  const caption = imageData.length > 0 ? imageData[0].caption : "";
+
 
   return (
     <StyledWrapper>
       <div className="main">
-        {imageData.slice(0, 4).map((data: typeof imageData[number], index: number) => (
+        {visibleImages.map((data, index) => (
           <div
             key={index}
             className="card"
@@ -33,10 +59,10 @@ const Card = ({ imageData }: { imageData: any }) => {
             onClick={() => openModal(index)}
           >
             <img src={data.src} className="size-fit" alt={`Card ${index + 1}`} />
+            {index === 3 && <p className="card-caption">{caption}</p>} {/* Legenda no primeiro card */}
           </div>
         ))}
       </div>
-
       {isModalOpen && (
         <Modal>
           <div className="modal-content">
@@ -47,8 +73,8 @@ const Card = ({ imageData }: { imageData: any }) => {
               &#10094;
             </button>
             <div className="image-container">
-              <img src={imageData[currentImage].src} alt={`Image ${currentImage + 1}`} />
-              <p className="caption">{imageData[currentImage].caption}</p> {/* Exibindo a legenda */}
+              <img src={allImages[currentImage].src} alt={`Image ${currentImage + 1}`} />
+              <p className="caption">{allImages[currentImage].caption}</p> {/* Exbindo a legenda */}
             </div>
             <button className="next" onClick={nextImage}>
               &#10095;
@@ -139,26 +165,26 @@ const StyledWrapper = styled.div`
   .card {
     width: 330px;
     height: 400px;
-    background: rgba(211, 211, 211, 0.199);
+    // background: rgba(211, 211, 211, 0.199);
     position: absolute;
     transition: 0.3s ease-in-out;
     cursor: pointer;
   }
 
   #c1 {
-    background-color: white;
+    // background-color: white;
   }
 
   #c2 {
-    background-color: white;
+    // background-color: white;
   }
 
   #c3 {
-    background-color: white;
+    // background-color: white;
   }
 
   #c4 {
-    background-color: white;
+    // background-color: white;
   }
 
   .main:hover #c1 {
@@ -196,6 +222,15 @@ const StyledWrapper = styled.div`
     transform: translateX(50px) rotate(0deg) scale(1.1) !important;
     z-index: 999 !important;
   }
+
+  .card-caption {
+    margin-top: 10px;
+    font-size: 18px;
+    color: black;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+  }
 `;
 
 export default Card;
+

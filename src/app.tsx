@@ -15,7 +15,7 @@ import Header from './components/header';
 
 export function App() {
     return (
-      <div className="mx-auto max-w-6xl my-8 space-y-12">
+      <div className="mx-auto max-w-6xl my-8">
 
         <Router>
           <div>

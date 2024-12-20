@@ -31,7 +31,7 @@ const Header = () => {
   const isPortfolioActive = location.pathname.includes('/portfolio');
 
   return (
-    <header>
+    <header className='text-xl mb-24'>
       <nav className='flex items-center justify-center gap-6 cursor-pointer'>
         <NavLink 
           to="/" 
@@ -69,14 +69,6 @@ const Header = () => {
                 }
               >
                 Colagem
-              </NavLink>
-              <NavLink 
-                to="/portfolio/design-grafico" 
-                className={({ isActive }) => 
-                  isActive ? 'block px-4 py-2 font-bold hover:bg-gray-200' : 'block px-4 py-2 text-black hover:bg-gray-200'
-                }
-              >
-                Design Gráfico
               </NavLink>
               <NavLink 
                 to="/portfolio/fotografia" 

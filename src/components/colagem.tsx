@@ -2,49 +2,30 @@ import React from 'react';
 import Card from './cards'
 import Rotate from './rotate';
 
-import sev1 from '../assets/70s/70s_1.jpg';
-import sev2 from '../assets/70s/70s_2.jpg';
-import sev3 from '../assets/70s/70s_6.jpg';
-import sev4 from '../assets/70s/70s_7.jpg';
-
-import azul1 from '../assets/azul/azul1.jpg';
-import azul2 from '../assets/azul/azul2.jpg';
-import azul3 from '../assets/azul/azul3.jpg';
-import azul4 from '../assets/azul/azul4.png';
-
-import marrom1 from '../assets/marrom/marrom1.jpg';
-import marrom2 from '../assets/marrom/marrom2.png';
-import marrom3 from '../assets/marrom/marrom3.png';
+import sub1 from '../assets/submerso-col/sub1.jpg';
+import sub2 from '../assets/submerso-col/sub2.jpg';
+import sub3 from '../assets/submerso-col/sub3.jpg';
+import sub4 from '../assets/submerso-col/sub4.jpg';
+import sub5 from '../assets/submerso-col/sub5.jpg';
+import sub6 from '../assets/submerso-col/sub6.png';
 
 const Colagem = () => {
 
-    const sev = [
-        { src: sev1, caption: '70s' },
-        { src: sev2, caption: '70s' },
-        { src: sev3, caption: '70s' },
-        { src: sev4, caption: '70s' },
-    ];
-
-    const azul = [
-        { src: azul1, caption: 'Azul' },
-        { src: azul2, caption: 'Azul' },
-        { src: azul3, caption: 'Azul' },
-        { src: azul4, caption: 'Azul' },
-    ];
-
-    const marrom = [
-        { src: marrom3, caption: 'Marrom' },
-        { src: marrom2, caption: 'Marrom' },
-        { src: marrom1, caption: 'Marrom' },
+    const sub = [
+        { src: sub4, caption: 'Mar Negro | Colagens Manuais e Poema, 2018' },
+        { src: sub3, caption: 'Mar Negro | Colagens Manuais e Poema, 2018' },
+        { src: sub2, caption: 'Mar Negro | Colagens Manuais e Poema, 2018' },
+        { src: sub1, caption: 'Mar Negro | Colagens Manuais e Poema, 2018' },
+        
+        { src: sub6, caption: 'Mar Negro | Colagens Manuais e Poema, 2018' },
+        { src: sub5, caption: 'Mar Negro | Colagens Manuais e Poema, 2018' },
     ];
 
     return (
         <div className='grid grid-cols-2 gap-[550px] my-28'>
             <Rotate />
 
-            <Card imageData={sev} />
-            <Card imageData={azul} />
-            <Card imageData={marrom} />
+            <Card imageData={sub} />
         </div>
     );
 };
