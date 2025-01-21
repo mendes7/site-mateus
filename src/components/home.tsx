@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import ColagemHome from '../assets/imagem-mateus1.jpg'
+import ColagemHome from '../assets/colagem-home.jpg'
 import DesignGraficoHome from '../assets/imagem-mateus1.jpg'
 import FotografiaHome from '../assets/fotografia-home.jpg'
 

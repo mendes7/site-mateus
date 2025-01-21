@@ -20,9 +20,8 @@ const Fotografia = () => {
     ];
 
     return (
-        <div className='grid grid-cols-2 gap-[550px] my-28'>
+        <div className='grid justify-center items-center my-28'>
             <Rotate />
-
             <Card imageData={sub} />
         </div>
     );

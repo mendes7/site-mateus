@@ -162,9 +162,18 @@ const Modal = styled.div`
 `;
 
 const StyledWrapper = styled.div`
+  .main {
+    position: relative;
+    height: 60vh; /* Ocupa toda a altura da tela */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
   .card {
     width: 330px;
     height: 400px;
+    transform: scale(1.5);
     // background: rgba(211, 211, 211, 0.199);
     position: absolute;
     transition: 0.3s ease-in-out;
@@ -188,38 +197,38 @@ const StyledWrapper = styled.div`
   }
 
   .main:hover #c1 {
-    transform: translateX(-130px) rotate(-40deg);
+    transform: translateX(-130px) rotate(-40deg) scale(1.5);
   }
 
   .main:hover #c2 {
-    transform: translateX(-50px) rotate(-30deg);
+    transform: translateX(-50px) rotate(-30deg) scale(1.5);
   }
 
   .main:hover #c3 {
-    transform: translateX(0) rotate(-20deg);
+    transform: translateX(0) rotate(-20deg) scale(1.5);
   }
 
   .main:hover #c4 {
-    transform: translateX(50px) rotate(-10deg);
+    transform: translateX(50px) rotate(-10deg) scale(1.5);
   }
 
   #c1:hover {
-    transform: translateX(-150px) rotate(0deg) scale(1.1) !important;
+    transform: translateX(-150px) rotate(0deg) scale(1.5) !important;
     z-index: 999 !important;
   }
 
   #c2:hover {
-    transform: translateX(-100px) rotate(0deg) scale(1.1) !important;
+    transform: translateX(-100px) rotate(0deg) scale(1.5) !important;
     z-index: 999 !important;
   }
 
   #c3:hover {
-    transform: translateX(-50px) rotate(0deg) scale(1.1) !important;
+    transform: translateX(-50px) rotate(0deg) scale(1.5) !important;
     z-index: 999 !important;
   }
 
   #c4:hover {
-    transform: translateX(50px) rotate(0deg) scale(1.1) !important;
+    transform: translateX(50px) rotate(0deg) scale(1.5) !important;
     z-index: 999 !important;
   }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import peixe from '../assets/logo-peixe.png'; // Sua imagem
+import peixe from '../assets/logo-peixe.png';
 
 const Rotate = () => {
   return (
