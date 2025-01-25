@@ -81,6 +81,11 @@ const Card = ({ imageData }: { imageData: any[] }) => {
     imageData.forEach((data, index) => {
       loadImage(index, data.src);
     });
+
+    // Pré-carregar as imagens extras em segundo plano (não visíveis)
+    extraImages.forEach((data, index) => {
+      loadImage(visibleImages.length + index, data.src); // Carregar as imagens extras
+    });
   }, [imageData]);
 
   return (
@@ -105,6 +110,7 @@ const Card = ({ imageData }: { imageData: any[] }) => {
           )}
         </div>
       ))}
+      
       {isModalOpen && (
         <div className="modal-content">
           <button className="close" onClick={closeModal}>
@@ -128,4 +134,3 @@ const Card = ({ imageData }: { imageData: any[] }) => {
 };
 
 export default Card;
-
