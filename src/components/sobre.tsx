@@ -3,7 +3,7 @@ import React from 'react';
 const Sobre = () => {
   return (
     <div className='mx-auto max-w-6xl my-8 space-y-12'>
-        <div className='text-center text-justify'>
+        <div className='text-justify'>
           <p>
           Artista visual e estudante de design gráfico. A colagem e a fotografia têm feito parte da minha vida há quase 10 anos.
 

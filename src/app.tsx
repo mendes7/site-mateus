@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/home';
 import Portfolio from './components/portfolio';
 import Colagem from './components/colagem';
-import DesignGrafico from './components/design-grafico';
+import Design from './components/design';
 import Fotografia from './components/fotografia';
 import Sobre from './components/sobre';
 import Contato from './components/contato';
@@ -27,7 +27,7 @@ export function App() {
               <Route path="/" element={<Home />} />
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/portfolio/colagem" element={<Colagem />} />
-              <Route path="/portfolio/design-grafico" element={<DesignGrafico />} />
+              <Route path="/portfolio/design-grafico" element={<Design />} />
               <Route path="/portfolio/fotografia" element={<Fotografia />} />
               <Route path="/sobre" element={<Sobre />} />
               <Route path="/contato" element={<Contato />} />
