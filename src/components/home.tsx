@@ -33,7 +33,7 @@ const Home = () => {
 
         {/* Card Designs Gráficos */}
         <NavLink 
-          to="/portfolio/colagem" 
+          to="/portfolio/design-grafico" 
           className='block relative group cursor-pointer overflow-hidden duration-500 w-[25rem] h-[35rem] bg-zinc-800 text-neutral-50'
         >
           <div className="relative group cursor-pointer overflow-hidden duration-500 w-full h-full bg-zinc-800 text-neutral-50">

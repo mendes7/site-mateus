@@ -58,33 +58,29 @@ const Card = ({ imageData }: { imageData: any[] }) => {
     });
   };
 
-  // Função para carregar imagens dinamicamente
-  const loadImage = async (index: number, src: any) => {
-    if (typeof src === 'function') {
-      const importedImage = await src();
-      setResolvedSrc((prev) => {
-        const newResolvedSrc = [...prev];
-        newResolvedSrc[index] = importedImage.default; // Usando default se for um módulo
-        return newResolvedSrc;
-      });
-    } else {
-      setResolvedSrc((prev) => {
-        const newResolvedSrc = [...prev];
-        newResolvedSrc[index] = src;
-        return newResolvedSrc;
-      });
-    }
+  // Função para pré-carregar as imagens extras com a API Image
+  const preloadImage = (src: string) => {
+    const img = new Image();
+    img.src = src;
+    img.onload = () => {
+      // As imagens são carregadas em segundo plano
+    };
   };
-
+  
   // Carregar as imagens dinamicamente assim que o componente for montado
   useEffect(() => {
     imageData.forEach((data, index) => {
-      loadImage(index, data.src);
+      setResolvedSrc((prev) => {
+        const newResolvedSrc = [...prev];
+        newResolvedSrc[index] = data.src;
+        return newResolvedSrc;
+      });
+      preloadImage(data.src); // Pré-carrega as imagens visíveis
     });
 
-    // Pré-carregar as imagens extras em segundo plano (não visíveis)
-    extraImages.forEach((data, index) => {
-      loadImage(visibleImages.length + index, data.src); // Carregar as imagens extras
+    // Pré-carregar as imagens extras
+    extraImages.forEach((data) => {
+      preloadImage(data.src); // Carrega as imagens extras em segundo plano
     });
   }, [imageData]);
 
