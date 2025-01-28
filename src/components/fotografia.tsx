@@ -54,7 +54,10 @@ const Fotografia = () => {
         <div className='grid justify-center items-center my-28 pb-32'>
             <Rotate />
 
-            <Card imageData={mar} />
+            <Card
+            imageData={mar}
+            textOverlay='Intitulada Marés de Liberdade, esta série de fotografias em preto e branco retrata meninos de um abrigo em Salvador aproveitando um dia de passeio à praia. O registro captura a essência da alegria e da liberdade, simbolizando a força transformadora de momentos simples. A ação fez parte de um projeto voluntário conduzido por Magda Mendes, minha mãe.'
+            />
 
             <Card imageData={arembepe} />
         </div>
