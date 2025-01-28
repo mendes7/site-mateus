@@ -50,7 +50,7 @@ const DesignGrafico = () => {
 
     const marvin = marvinImages.map((src) => ({
         src,
-        caption: `Marvin Gaye | Capa de Single | 2024`,
+        caption: `Marvin Gaye - Cans4do | Capa de Single | 2024`,
     }));
 
     return (
@@ -59,7 +59,10 @@ const DesignGrafico = () => {
 
             <Card imageData={taste} />
 
-            <Card imageData={marvin} />
+            <Card 
+            imageData={marvin} 
+            textOverlay='Arte de colagem manual criada a partir de recortes de revistas, desenvolvida para o single do artista baiano cans4do. A composição mistura texturas e formas para capturar a essência e o espírito da música.'
+            />
         </div>
     );
 };

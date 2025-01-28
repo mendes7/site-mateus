@@ -42,7 +42,7 @@ const Home = () => {
               <div className="absolute -z-10 left-0 w-full h-full opacity-0 duration-500 group-hover:opacity-50 group-hover:bg-gradient-to-t from-zinc-800 to-transparent" />
               <h1 className="text-3xl font-bold">Design Gráfico</h1>
               <p className="group-hover:opacity-100 w-full duration-500 opacity-0 text-lg">
-              Projetos que unem criatividade e funcionalidade, explorando conceitos visuais para comunicação eficaz e estética impactante.
+              Criações visuais que combinam estética, criatividade e comunicação eficiente.
               </p>
               <h2 className="group-hover:opacity-100 w-full duration-500 opacity-0 font-semibold">Clique para ver mais</h2>
             </div>
