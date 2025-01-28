@@ -15,6 +15,23 @@
     position: absolute;
     transition: 0.3s ease-in-out;
     cursor: pointer;
+    z-index: 0;
+}
+
+#c1 {
+    z-index: 4; /* A primeira imagem visível terá o maior z-index */
+}
+
+#c2 {
+    z-index: 3;
+}
+
+#c3 {
+    z-index: 2;
+}
+
+#c4 {
+    z-index: 1; /* A última imagem visível terá o menor z-index */
 }
 
 .main:hover #c1 {
@@ -26,7 +43,7 @@
 }
 
 .main:hover #c3 {
-    transform: translateX(0) rotate(-20deg) scale(1.5);
+    transform: translateX(10px) rotate(-20deg) scale(1.5);
 }
 
 .main:hover #c4 {

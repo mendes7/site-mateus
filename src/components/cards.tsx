@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import '../styles/cards.css'; // CSS personalizado
 
-const Card = ({ imageData }: { imageData: any[] }) => {
+const Card = ({ imageData, textOverlay }: { imageData: any[]; textOverlay?: string }) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  
   // Dividir as imagens em duas partes: as primeiras 4 para visualização e o resto como extras
   const visibleImages = imageData.slice(0, 4); // Primeiras 4 imagens
   const extraImages = imageData.slice(4); // Imagens extras
@@ -16,36 +16,53 @@ const Card = ({ imageData }: { imageData: any[] }) => {
 
   const closeModal = () => setIsModalOpen(false);
 
+  // Unir as imagens visíveis e extras para a navegação no modal
+  const allImages = [...visibleImages, ...extraImages];
+  if (textOverlay) {
+    allImages.push({ isText: true, content: textOverlay });
+  }
+
+  const caption = imageData.length > 0 ? imageData[0].caption : "";
+
+  // Navegação para a próxima imagem (incluindo texto no final da sequência)
   const nextImage = () => {
-    setCurrentImage((prevIndex) =>
-      prevIndex === 0 ? (visibleImages.length + extraImages.length) - 1 : prevIndex - 1
-    );
+    setCurrentImage((prevIndex) => {
+      // Se estiver na última imagem (texto), volta para a primeira
+      if (prevIndex === allImages.length - 1) {
+        return 0;
+      }
+      return prevIndex + 1;
+    });
   };
 
+  // Navegação para a imagem anterior (voltar do texto para a última imagem)
   const prevImage = () => {
-    setCurrentImage((prevIndex) => (prevIndex + 1) % (visibleImages.length + extraImages.length));
-  };
-
-  // Manipulador de teclas
-  const handleKeyDown = (event: KeyboardEvent) => {
-    if (event.key === "ArrowRight") nextImage();
-    if (event.key === "ArrowLeft") prevImage();
-    if (event.key === "Escape") closeModal();
+    setCurrentImage((prevIndex) => {
+      // Se estiver na primeira imagem, vai para a última (última imagem de todas, antes do texto)
+      if (prevIndex === 0) {
+        return allImages.length - 1;
+      }
+      return prevIndex - 1;
+    });
   };
 
   // Ativa e remove o listener de teclas
   useEffect(() => {
+    // Manipulador de teclas
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "ArrowRight") nextImage();
+      if (event.key === "ArrowLeft") prevImage();
+      if (event.key === "Escape") closeModal();
+    };
+
     if (isModalOpen) {
       window.addEventListener("keydown", handleKeyDown);
     } else {
       window.removeEventListener("keydown", handleKeyDown);
     }
+
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isModalOpen]);
-
-  // Unir as imagens visíveis e extras para a navegação no modal
-  const allImages = [...visibleImages, ...extraImages];
-  const caption = imageData.length > 0 ? imageData[0].caption : "";
   
   const [resolvedSrc, setResolvedSrc] = useState<string[]>(new Array(imageData.length).fill(''));
   const [loadedImages, setLoadedImages] = useState<boolean[]>(new Array(imageData.length).fill(false));
@@ -84,6 +101,15 @@ const Card = ({ imageData }: { imageData: any[] }) => {
     });
   }, [imageData]);
 
+  const renderTextWithLineBreaks = (text: string) => {
+    return text.split('\n').map((line, index) => (
+      <span key={index}>
+        {line}
+        <br />
+      </span>
+    ));
+  };
+
   return (
     <div className="main">
       {visibleImages.map((data, index) => (
@@ -101,7 +127,7 @@ const Card = ({ imageData }: { imageData: any[] }) => {
             />
           </div>
 
-          {(index === 3 || index === Math.max(...visibleImages.map((_, i) => i))) && (
+          {index === 0 && (
             <p className="card-caption">{caption}</p>
           )}
         </div>
@@ -117,9 +143,27 @@ const Card = ({ imageData }: { imageData: any[] }) => {
           </button>
 
           <div className="image-container">
-            <img src={allImages[currentImage].src} alt={`Image ${currentImage + 1}`} />
-            <p className="caption">{allImages[currentImage].caption}</p> {/* Exibindo a legenda */}
+            {allImages[currentImage]?.isText ? (
+              <div className="flex items-center justify-center h-full w-96">
+                <p className="text-white text-lg font-bold text-justify">
+                  {renderTextWithLineBreaks(allImages[currentImage].content)}
+                </p>
+              </div>
+            ) : (
+              <>
+                <img
+                  src={allImages[currentImage].src}
+                  alt={`Image ${currentImage + 1}`}
+                  className="size-fit"
+                />
+                <p className="caption">{allImages[currentImage].caption}</p>
+                <div className="image-indicator text-white text-center mt-12">
+                  {currentImage + 1} / {allImages.length}
+                </div>
+              </>
+            )}
           </div>
+
           <button className="next" onClick={nextImage}>
             &#10095;
           </button>

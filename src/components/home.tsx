@@ -61,7 +61,7 @@ const Home = () => {
               <div className="absolute -z-10 left-0 w-full h-full opacity-0 duration-500 group-hover:opacity-50 group-hover:bg-gradient-to-t from-zinc-800 to-transparent" />
               <h1 className="text-3xl font-bold">Fotografia</h1>
               <p className="group-hover:opacity-100 w-full duration-500 opacity-0 text-lg">
-              Fotografias produzidas em formatos digitais e analógicos, explorando diferentes abordagens e técnicas
+              Fotografias produzidas em formatos digitais e analógicos, explorando diferentes abordagens e técnicas.
               </p>
               <h2 className="group-hover:opacity-100 w-full duration-500 opacity-0 font-semibold">Clique para ver mais</h2>
             </div>

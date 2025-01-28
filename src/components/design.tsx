@@ -24,55 +24,44 @@ const marvin3 = () => import('../assets/designs/marvin-dg/3.png');
 const marvin4 = () => import('../assets/designs/marvin-dg/4.png');
 const marvin5 = () => import('../assets/designs/marvin-dg/5.png');
 
-// Importações Revista Bibiana
-const revistabibianacapa = () => import('../assets/designs/revistabibiana.png');
+
 
 const DesignGrafico = () => {
-  const [tasteImages, setTasteImages] = useState<any[]>([]);
-  const [marvinImages, setMarvinImages] = useState<any[]>([]);
-  const [revistaImage, setRevistaImage] = useState<any>(null);
+    const [tasteImages, setTasteImages] = useState<any[]>([]);
+    const [marvinImages, setMarvinImages] = useState<any[]>([]);
 
-  useEffect(() => {
-    // Carregar as imagens dinamicamente
-    const loadImages = async () => {
-      const taste = await Promise.all([taste4(),taste3(),taste2(),taste1(),   taste11(),taste10(),taste9(),taste8(),taste7(),taste6(),taste5(),]);
-      setTasteImages(taste.map(img => img.default)); // Extraindo o default se necessário
+    useEffect(() => {
+        // Carregar as imagens dinamicamente
+        const loadImages = async () => {
+          const taste = await Promise.all([taste1(),taste2(),taste3(),taste4(),   taste5(),taste6(),taste7(),taste8(),taste9(),taste10(),taste11(),]);
+          setTasteImages(taste.map(img => img.default)); // Extraindo o default se necessário
 
-      const marvin = await Promise.all([marvin4(),marvin3(),marvin2(),marvin1(),   marvin5(),]);
-      setMarvinImages(marvin.map(img => img.default)); // Extraindo o default se necessário
+          const marvin = await Promise.all([marvin1(),marvin2(),marvin3(),marvin4(),   marvin5(),]);
+          setMarvinImages(marvin.map(img => img.default)); // Extraindo o default se necessário
+        };
 
-      const revista = await revistabibianacapa();
-      setRevistaImage(revista.default); // Extraindo o default se necessário
-    };
+        loadImages();
+    }, []);
 
-    loadImages();
-  }, []);
+    const taste = tasteImages.map((src) => ({
+        src,
+        caption: `Taste Of | Identidade Visual | 2024`,
+    }));
 
-  const taste = tasteImages.map((src) => ({
-    src,
-    caption: `Taste Of | Identidade Visual | 2024`,
-  }));
+    const marvin = marvinImages.map((src) => ({
+        src,
+        caption: `Marvin Gaye | Capa de Single | 2024`,
+    }));
 
-  const marvin = marvinImages.map((src) => ({
-    src,
-    caption: `Marvin Gaye | Capa de Single | 2024`,
-  }));
+    return (
+        <div className='grid justify-center items-center my-28 pb-32'>
+            <Rotate />
 
-  const revistabibiana = [
-    { src: revistaImage, caption: 'Revista Bibiana (Capa) | 2024' },
-  ];
+            <Card imageData={taste} />
 
-  return (
-    <div className='grid justify-center items-center my-28 pb-32'>
-      <Rotate />
-
-      <Card imageData={taste} />
-      <Card imageData={marvin} />
-      <div className='mt-52'>
-        <Card imageData={revistabibiana} />
-      </div>
-    </div>
-  );
+            <Card imageData={marvin} />
+        </div>
+    );
 };
 
 export default DesignGrafico;
